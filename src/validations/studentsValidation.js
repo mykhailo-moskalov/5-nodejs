@@ -5,6 +5,7 @@ import { isValidObjectId } from 'mongoose';
 const objectIdValidator = (value, helpers) =>
   !isValidObjectId(value) ? helpers.message('Invalid id format') : value;
 
+// ! GET
 export const getStudentsSchema = {
   [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().min(1).default(1),
@@ -17,12 +18,14 @@ export const getStudentsSchema = {
   }),
 };
 
+// ! ID
 export const studentIdParamSchema = {
   [Segments.PARAMS]: Joi.object({
     studentId: Joi.string().custom(objectIdValidator).required(),
   }),
 };
 
+// ! POST
 export const createStudentSchema = {
   [Segments.BODY]: Joi.object({
     name: Joi.string().min(1).max(30).required().messages({
@@ -53,6 +56,7 @@ export const createStudentSchema = {
   }),
 };
 
+// ! PATCH
 export const updateStudentSchema = {
   [Segments.PARAMS]: Joi.object({
     studentId: Joi.string().custom(objectIdValidator).required(),

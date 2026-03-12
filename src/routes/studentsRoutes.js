@@ -2,7 +2,7 @@
 import createHttpError from 'http-errors';
 import { Router } from 'express';
 import { celebrate } from 'celebrate';
-// / Validdations
+// / Validations
 import {
   getStudentsSchema,
   studentIdParamSchema,

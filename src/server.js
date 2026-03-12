@@ -35,12 +35,10 @@ app.use(studentsRoutes);
 // ! Middlewares
 
 app.use(notFoundHandler);
-
 app.use(errors());
-
 app.use(errorHandler);
 
-// ! connecting to MongoDB
+// ! Connecting to MongoDB
 await connectMongoDB();
 
 // ! Server startup
