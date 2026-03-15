@@ -13,6 +13,7 @@ import { logger } from './middleware/logger.js';
 // / Routes
 import studentsRoutes from './routes/studentsRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -29,8 +30,9 @@ app.use(cookieParser());
 
 // ! Routes
 
-app.use(authRoutes);
 app.use(studentsRoutes);
+app.use(authRoutes);
+app.use(userRoutes);
 
 // ! Middlewares
 
